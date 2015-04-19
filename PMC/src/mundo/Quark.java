@@ -4,6 +4,18 @@ import java.util.Date;
 
 public class Quark 
 {
+	public static final long TEMPERATURA_LOW = 0;
+	public static final long TEMPERATURA_MID = 0;
+	public static final long TEMPERATURA_HIGH = 0;
+	
+	public static final long MOVIMIENTO_LOW = 0;
+	public static final long MOVIMIENTO_MID = 0;
+	public static final long MOVIMIENTO_HIGH = 0;
+	
+	public static final long SONIDO_LOW = 0;
+	public static final long SONIDO_MID = 0;
+	public static final long SONIDO_HIGH = 0;
+	
 	private Date fecha;
 	
 	private long temperatura;
@@ -18,6 +30,20 @@ public class Quark
 		temperatura = xTemperatura;
 		movimiento = xMovimiento;
 		sonido = xSonido;
+	}
+	public boolean temperaturaAlta()
+	{
+		return temperatura > TEMPERATURA_HIGH;
+	}
+	
+	public boolean temperaturaBaja()
+	{
+		return temperatura < TEMPERATURA_LOW;
+	}
+	
+	public boolean temperaturaMedia()
+	{
+		return !temperaturaAlta() && !temperaturaBaja();
 	}
 
 	public Date getFecha() 
