@@ -45,6 +45,36 @@ public class Quark
 	{
 		return !temperaturaAlta() && !temperaturaBaja();
 	}
+	
+	public boolean movimientoAlto()
+	{
+		return movimiento > MOVIMIENTO_HIGH;
+	}
+	
+	public boolean movimientoBajo()
+	{
+		return movimiento < MOVIMIENTO_LOW;
+	}
+	
+	public boolean movimientoMedio()
+	{
+		return !movimientoAlto() && !movimientoBajo();
+	}
+	
+	public boolean sonidoAlto()
+	{
+		return sonido > SONIDO_HIGH;
+	}
+	
+	public boolean sonidoBajo()
+	{
+		return sonido < SONIDO_LOW;
+	}
+	
+	public boolean sonidoMedio()
+	{
+		return !sonidoAlto() && !sonidoBajo();
+	}
 
 	public Date getFecha() 
 	{

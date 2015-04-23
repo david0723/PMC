@@ -17,7 +17,8 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	
 	private static Connection conexion;
 
-	private static void main(String[] args) {
+	private static void main(String[] args) 
+	{
 		// TODO Auto-generated method stub
 
 	}
