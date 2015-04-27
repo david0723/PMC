@@ -9,7 +9,7 @@ public class Master {
 	
 private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/crowdcontrol";
+	private static final String DB_URL = "jdbc:mysql://186.80.5.126/crowdcontrol";
 	
 	private static final String USER = "pmc";
 	
