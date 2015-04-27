@@ -15,28 +15,36 @@ import org.jfree.data.xy.XYDataset;
 
 import mundo.Hadron;
 import mundo.Quark;
+import mundo.Refresher;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Date;
 
-public class Interfaz {
+public class Interfaz 
+{
 
+	private Thread ref;
+	
 	private JFrame frame;
 	private JPanel panel;
+	private Hadron hadron; 
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	public static void main(String[] args) 
+	{
+		EventQueue.invokeLater(new Runnable() 
+		{
+			public void run() 
+			{
+				try 
+				{
 					Interfaz window = new Interfaz();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				} 
+				catch (Exception e) {e.printStackTrace();}
 			}
 		});
 	}
@@ -51,7 +59,10 @@ public class Interfaz {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize() 
+	{
+		ref = new Thread(new Refresher(this));
+		inithadron();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 590, 393);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,32 +76,55 @@ public class Interfaz {
 		btnTest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				showDataForever();
+				ref.start();
+//				try {
+//					showDataForever();
+//				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				show();
 			}
 		});
 		btnTest.setBounds(172, 317, 251, 36);
 		frame.getContentPane().add(btnTest);
 	}
 	
-	public void showDataForever()
+	public void showDataForever() throws InterruptedException
 	{
-
+System.out.println("show data");
+		for (int i = 0; i !=100; i++)
+		{
+			System.out.println("Loop: "+i);
+			
+			panel.removeAll();
+			hadron.insertQuark(new Quark());
+			ChartPanel cp = new ChartPanel(hadron.getChart());
+			panel.add(cp);
+			panel.updateUI();
+			Thread.sleep(1000);
+		}
+		
+	}
+	
+	public void showData()
+	{
 		panel.removeAll();
-		ChartPanel cp = new ChartPanel(createData());
+		hadron.insertQuark(new Quark());
+		ChartPanel cp = new ChartPanel(hadron.getChart());
 		panel.add(cp);
 		panel.updateUI();
 	}
 	
-	public JFreeChart createData()
+
+	public void inithadron()
 	{
-		Hadron hadron = new Hadron();
-		for (int i = 0; i < 10; i ++)
+		this.hadron = new Hadron();
+		for (int i = 0; i < 25; i ++)
 		{
-			Quark quark = new Quark(new Date(), (long) (Math.random()*10), (long) (Math.random()*10), (long) (Math.random()*10));
+			Quark quark = new Quark();
 			hadron.addQuark(quark);
 		}
-		XYDataset data = hadron.createDataset();
-		return hadron.createChart(data);
 	}
 
 }

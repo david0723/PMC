@@ -31,6 +31,13 @@ public class Quark
 		movimiento = xMovimiento;
 		sonido = xSonido;
 	}
+	public Quark()
+	{
+		fecha = new Date();
+		temperatura = (long) (Math.random()*10);
+		movimiento = (long) (Math.random()*10);
+		sonido = (long) (Math.random()*10);
+	}
 	public boolean temperaturaAlta()
 	{
 		return temperatura > TEMPERATURA_HIGH;

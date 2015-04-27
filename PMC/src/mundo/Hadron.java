@@ -80,6 +80,16 @@ public class Hadron
 		return dataset;
         
     }
+	public void insertQuark(Quark q)
+	{
+		quarks.remove(0);
+		quarks.add(q);
+		
+	}
+	public JFreeChart getChart()
+	{
+		return createChart(createDataset());
+	}
 
 	public JFreeChart createChart(final XYDataset dataset) 
 	{
