@@ -12,11 +12,11 @@ public class Master {
 	
 private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/ccpmc";
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/crowdcontrol";
 	
-	private static final String USER = "crowdcontrol";
+	private static final String USER = "pmc";
 	
-	private static final String PASS = "pmccc";
+	private static final String PASS = "crowdcontrol";
 	
 	private static Connection conexion;
 
