@@ -1,12 +1,13 @@
 package mundo;
 
 import Graficas.Interfaz;
+import Graficas.InterfazPMC;
 
-public class Refresher implements Runnable
+public class Looper implements Runnable
 {
 
-	private Interfaz interfaz;
-	public Refresher(Interfaz interfaz)
+	private InterfazPMC interfaz;
+	public Looper(InterfazPMC interfaz)
 	{
 		this.interfaz = interfaz;
 	}

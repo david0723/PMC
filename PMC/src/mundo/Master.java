@@ -72,6 +72,14 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		}
 		
 	}
+	
+	public Hadron darHistorial(Date fechaInicial, Date fechaFinal)
+	{
+		//Se debe conectar a la base de datos, 
+		//pedir los datos que esten entre las fechas indicadas
+		//y retornar un Hadron con la informacion solicitada
+		return null;
+	}
 }
 
 

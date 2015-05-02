@@ -2,6 +2,7 @@ package Graficas;
 
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -21,6 +22,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Date;
 
+import javax.swing.JLabel;
+
 public class Interfaz 
 {
 
@@ -28,7 +31,9 @@ public class Interfaz
 	
 	private JFrame frame;
 	private JPanel panel;
-	private Hadron hadron; 
+	private Hadron hadron;
+
+	private JLabel lblNewLabel; 
 
 	/**
 	 * Launch the application.
@@ -64,13 +69,17 @@ public class Interfaz
 		ref = new Thread(new Refresher(this));
 		inithadron();
 		frame = new JFrame();
-		frame.setBounds(100, 100, 590, 393);
+		frame.setBounds(100, 100, 1158, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		panel= new JPanel();
-		panel.setBounds(82, 90, 438, 202);
+		panel.setBounds(24, 17, 1092, 546);
 		frame.getContentPane().add(panel);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		lblNewLabel = new JLabel("");
+		panel.add(lblNewLabel, BorderLayout.SOUTH);
 		
 		JButton btnTest = new JButton("Test");
 		btnTest.addActionListener(new ActionListener() {
@@ -86,7 +95,7 @@ public class Interfaz
 //				show();
 			}
 		});
-		btnTest.setBounds(172, 317, 251, 36);
+		btnTest.setBounds(471, 575, 251, 36);
 		frame.getContentPane().add(btnTest);
 	}
 	
@@ -97,10 +106,18 @@ System.out.println("show data");
 		{
 			System.out.println("Loop: "+i);
 			
+//			panel.removeAll();
+//			hadron.insertQuark(new Quark());
+//			ChartPanel cp = new ChartPanel(hadron.getChart());
+//			panel.add(cp);
+//			panel.updateUI();
+//			Thread.sleep(1000);
+			
 			panel.removeAll();
 			hadron.insertQuark(new Quark());
-			ChartPanel cp = new ChartPanel(hadron.getChart());
-			panel.add(cp);
+			ImageIcon chart = hadron.toChart();
+			lblNewLabel =new JLabel(chart);
+			panel.add(lblNewLabel, BorderLayout.CENTER);
 			panel.updateUI();
 			Thread.sleep(1000);
 		}
@@ -110,21 +127,31 @@ System.out.println("show data");
 	public void showData()
 	{
 		panel.removeAll();
-		hadron.insertQuark(new Quark());
-		ChartPanel cp = new ChartPanel(hadron.getChart());
-		panel.add(cp);
+		Quark q = new Quark();
+		q.random(hadron.getLastQuark());
+		hadron.insertQuark(q);
+		
+		ImageIcon chart = hadron.toChart();
+		lblNewLabel =new JLabel(chart);
+		panel.add(lblNewLabel, BorderLayout.CENTER);
+		panel.updateUI();
+		
+//		ChartPanel cp = new ChartPanel(hadron.getChart());
+//		panel.add(cp);
 		panel.updateUI();
 	}
 	
 
 	public void inithadron()
 	{
+		Quark xquark = new Quark();
 		this.hadron = new Hadron();
 		for (int i = 0; i < 25; i ++)
 		{
 			Quark quark = new Quark();
+			quark.random(xquark);
+			xquark = quark;
 			hadron.addQuark(quark);
 		}
 	}
-
 }

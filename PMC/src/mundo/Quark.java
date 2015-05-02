@@ -34,9 +34,16 @@ public class Quark
 	public Quark()
 	{
 		fecha = new Date();
-		temperatura = (long) (Math.random()*10);
-		movimiento = (long) (Math.random()*10);
-		sonido = (long) (Math.random()*10);
+		temperatura = (long) (Math.random()*100);
+		movimiento = (long) (Math.random()*100);
+		sonido = (long) (Math.random()*100);
+	}
+	public void random(Quark xquark)
+	{
+
+		temperatura = xquark.getTemperatura() + (long) (Math.random()*5) - (long) (Math.random()*5);
+		movimiento = xquark.getMovimiento() + (long) (Math.random()*5) - (long) (Math.random()*5);
+		sonido = xquark.getSonido() + (long) (Math.random()*5) - (long) (Math.random()*5);
 	}
 	public boolean temperaturaAlta()
 	{
