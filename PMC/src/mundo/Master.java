@@ -13,7 +13,7 @@ public class Master {
 	
 private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	
-	private static final String DB_URL = "jdbc:mysql://http://192.168.0.4/crowdcontrol";
+	private static final String DB_URL = "jdbc:mysql://192.168.0.4/crowdcontrol";
 	
 	private static final String USER = "pmc";
 	
@@ -27,11 +27,19 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
 	}
 	
-	public void establecerConexion(String url , String user , String pass)
+	public static void establecerConexion(String url , String user , String pass)
 	{
+		try {
+		    Class.forName(JDBC_DRIVER);
+		} 
+		catch (ClassNotFoundException e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		} 
 		try 
 		{
 			conexion = DriverManager.getConnection(url, user, pass);
+			
 		}
 			catch(Exception e)
 		
@@ -40,7 +48,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 			}
 	}
 	
-	public void cerrarConexion(Connection con)
+	public static void cerrarConexion(Connection con)
 	{
 		try
 		{
@@ -55,7 +63,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		
 	}
 
-	public ArrayList<Quark> getAll() throws Exception
+	public static ArrayList<Quark> getAll() throws Exception
 	{
 		ArrayList<Quark> datos = new ArrayList<Quark>();
 		establecerConexion(DB_URL, USER, PASS);
@@ -71,6 +79,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 			int tiempo = t.getDate();
 			quark.setFecha(new Date(tiempo));
 			quark.setTemperatura(temp);
+			datos.add(quark);
 		}
 		String q1 ="SELECT * FROM SONIDO";
 		prep = conexion.prepareStatement(q1);
@@ -94,6 +103,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 			quark2.setMovimiento(temp);
 			j++;
 		}
+		cerrarConexion(conexion);
 		return datos;
 	}
 	

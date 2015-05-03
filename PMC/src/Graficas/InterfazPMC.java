@@ -187,7 +187,12 @@ public class InterfazPMC {
 			Quark quark = new Quark();
 			quark.random(xquark);
 			xquark = quark;
-			hadron.addQuark(quark);
+			try {
+				hadron.addQuark(quark);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }

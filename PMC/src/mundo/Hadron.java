@@ -33,9 +33,15 @@ public class Hadron
 		quarks = new ArrayList<Quark>();
 	}
 	
-	public void addQuark(Quark quark)
+	public void addQuark(Quark quark) throws Exception
 	{
-		quarks.add(quark);
+		ArrayList<Quark> nueva = Master.getAll();
+		for(int i =0; i<nueva.size();i++)
+		{
+			Quark q = nueva.get(i);
+			quarks.add(q);
+		}
+		
 	}
 
 	public Quark createAverageQuark()

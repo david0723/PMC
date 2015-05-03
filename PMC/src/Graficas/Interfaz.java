@@ -56,15 +56,17 @@ public class Interfaz
 
 	/**
 	 * Create the application.
+	 * @throws Exception 
 	 */
-	public Interfaz() {
+	public Interfaz() throws Exception {
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @throws Exception 
 	 */
-	private void initialize() 
+	private void initialize() throws Exception 
 	{
 		ref = new Thread(new Refresher(this));
 		inithadron();
@@ -142,7 +144,7 @@ System.out.println("show data");
 	}
 	
 
-	public void inithadron()
+	public void inithadron() throws Exception
 	{
 		Quark xquark = new Quark();
 		this.hadron = new Hadron();
