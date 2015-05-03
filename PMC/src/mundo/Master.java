@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Master {
@@ -54,23 +55,46 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		
 	}
 
-	public void getAll() throws Exception
+	public ArrayList<Quark> getAll() throws Exception
 	{
+		ArrayList<Quark> datos = new ArrayList<Quark>();
 		establecerConexion(DB_URL, USER, PASS);
 		PreparedStatement prep = null;
-		String q ="SELECT * FROM temperatura";
+		String q ="SELECT * FROM TEMPERATURA";
 		prep = conexion.prepareStatement(q);
 		ResultSet rs = prep.executeQuery();
 		Quark quark = new  Quark(null, 0, 0, 0);
 		while(rs.next())
 		{
-			long temp = rs.getLong("TEMPERATURA");
-			Timestamp t = rs.getTimestamp("TIMESTAMP");
+			long temp = rs.getLong("valor");
+			Timestamp t = rs.getTimestamp("tiempoRegistro");
 			int tiempo = t.getDate();
 			quark.setFecha(new Date(tiempo));
 			quark.setTemperatura(temp);
 		}
-		
+		String q1 ="SELECT * FROM SONIDO";
+		prep = conexion.prepareStatement(q1);
+		ResultSet rs1 = prep.executeQuery();
+		int i=0;
+		while(rs.next()&&i<datos.size())
+		{
+			long temp = rs1.getLong("valor");
+			Quark quark1 = datos.get(i);
+			quark1.setSonido(temp);
+			i++;
+		}
+		String q2 ="SELECT * FROM MOVIMIENTO";
+		prep = conexion.prepareStatement(q2);
+		ResultSet rs2 = prep.executeQuery();
+		int j=0;
+		while(rs.next()&&j<datos.size())
+		{
+			long temp = rs2.getLong("valor");
+			Quark quark2 = datos.get(i);
+			quark2.setMovimiento(temp);
+			j++;
+		}
+		return datos;
 	}
 	
 	public Hadron darHistorial(Date fechaInicial, Date fechaFinal)
