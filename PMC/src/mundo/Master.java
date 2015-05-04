@@ -81,7 +81,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		prep = conexion.prepareStatement(q1);
 		ResultSet rs1 = prep.executeQuery();
 		int i=0;
-		while(rs.next()&&i<datos.size())
+		while(rs1.next()&&i<datos.size())
 		{
 			int temp = rs1.getInt("valor");
 			Quark quark1 = datos.get(i);
@@ -92,7 +92,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		prep = conexion.prepareStatement(q2);
 		ResultSet rs2 = prep.executeQuery();
 		int j=0;
-		while(rs.next()&&j<datos.size())
+		while(rs2.next()&&j<datos.size())
 		{
 			int temp = rs2.getInt("valor");
 			Quark quark2 = datos.get(i);
