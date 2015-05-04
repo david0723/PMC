@@ -126,7 +126,7 @@ public class InterfazPMC {
 		btnVer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				DateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+				DateFormat format = new SimpleDateFormat("yyyy/mm/dd");
 				Hadron h = new Hadron();
 				try 
 				{
@@ -169,14 +169,14 @@ public class InterfazPMC {
 //		hadron.insertQuark(q);
 //		
 //		
-//		ArrayList<Quark> m = Master.getAll();
-//		System.out.println(m.size());
-//		for (int i =0; i< m.size();i++)
-//		{
-//			Quark p = m.get(i);
-//			
-//		System.out.println((m.get(i).toString()));
-//		}
+		ArrayList<Quark> m = master.getAll();
+		System.out.println(m.size());
+		for (int i =0; i< m.size();i++)
+		{
+			Quark p = m.get(i);
+			
+		System.out.println((m.get(i).toString()));
+		}
 		hadron = new Hadron(master.getAll());
 		ImageIcon chart = hadron.toChart();
 		lblgraficaTR.setIcon(chart);
