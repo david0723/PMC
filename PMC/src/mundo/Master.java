@@ -112,7 +112,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		ArrayList<Quark> datos = new ArrayList<Quark>();
 		establecerConexion(DB_URL, USER, PASS);
 		PreparedStatement prep = null;
-		String q ="SELECT * FROM TEMPERATURA WHERE tiempoRegistro BETWEEN "+fechaInicial +" AND "+fechaFinal;
+		String q ="SELECT * FROM TEMPERATURA WHERE tiempoRegistro BETWEEN '"+fechaInicial +"' AND '"+fechaFinal+"'";
 		prep = conexion.prepareStatement(q);
 		ResultSet rs = prep.executeQuery();
 		Quark quark = new  Quark(null, 0, 0, 0);
@@ -125,7 +125,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 			quark.setTemperatura(temp);
 			datos.add(quark);
 		}
-		String q1 ="SELECT * FROM SONIDO WHERE tiempoRegistro BETWEEN "+fechaInicial +" AND "+fechaFinal;
+		String q1 ="SELECT * FROM SONIDO WHERE tiempoRegistro BETWEEN '"+fechaInicial +"' AND '"+fechaFinal+"'";
 		prep = conexion.prepareStatement(q1);
 		ResultSet rs1 = prep.executeQuery();
 		int i=0;
@@ -136,7 +136,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 			quark1.setSonido(temp);
 			i++;
 		}
-		String q2 ="SELECT * FROM MOVIMIENTO WHERE tiempoRegistro BETWEEN "+fechaInicial +" AND "+fechaFinal;
+		String q2 ="SELECT * FROM MOVIMIENTO WHERE tiempoRegistro BETWEEN '"+fechaInicial +"' AND '"+fechaFinal+"'";
 		prep = conexion.prepareStatement(q2);
 		ResultSet rs2 = prep.executeQuery();
 		int j=0;
