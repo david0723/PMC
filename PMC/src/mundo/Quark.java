@@ -130,7 +130,8 @@ public class Quark
 	}
 	public String toString()
 	{
-		return temperatura+"         "+sonido+"            "+movimiento;
+		String fechas = fecha.toString();
+		return fechas + "\n"+temperatura+"         "+sonido+"            "+movimiento;
 		
 	}
 

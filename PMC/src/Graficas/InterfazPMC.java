@@ -168,7 +168,7 @@ public class InterfazPMC {
 		for (int i =0; i< m.size();i++)
 		{
 			Quark p = m.get(i);
-			System.out.println(p.getFecha());
+			
 		System.out.println((m.get(i).toString()));
 		}
 		ImageIcon chart = hadron.toChart();
