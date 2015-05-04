@@ -164,7 +164,7 @@ public class InterfazPMC {
 		hadron.insertQuark(q);
 		
 		
-		ArrayList<Quark> m = master.getAll();
+		ArrayList<Quark> m = Master.getAll();
 		for (int i =0; i< m.size();i++)
 		{
 			Quark p = m.get(i);
