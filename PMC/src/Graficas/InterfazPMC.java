@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JTextField;
@@ -155,13 +156,20 @@ public class InterfazPMC {
 		panelMeter.add(lblCrowdMeter, BorderLayout.CENTER);
 	}
 	
-	public void showData()
+	public void showData() throws Exception
 	{
 //		panel.removeAll();
 		Quark q = new Quark();
 		q.random(hadron.getLastQuark());
 		hadron.insertQuark(q);
 		
+		
+		ArrayList<Quark> m = master.getAll();
+		for (int i =0; i< m.size();i++)
+		{
+			
+		System.out.println((m.get(i).toString()));
+		}
 		ImageIcon chart = hadron.toChart();
 		lblgraficaTR.setIcon(chart);
 		

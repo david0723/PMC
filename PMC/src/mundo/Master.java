@@ -35,7 +35,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		try 
 		{
 			conexion = DriverManager.getConnection(url, user, pass);
-			System.out.println("Conectó");
+			System.out.println("Conectado");
 		}
 			catch(Exception e)
 		
