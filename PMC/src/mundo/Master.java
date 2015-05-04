@@ -59,7 +59,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		
 	}
 
-	public static ArrayList<Quark> getAll() throws Exception
+	public ArrayList<Quark> getAll() throws Exception
 	{
 		ArrayList<Quark> datos = new ArrayList<Quark>();
 		establecerConexion(DB_URL, USER, PASS);

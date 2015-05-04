@@ -68,7 +68,7 @@ public class InterfazPMC {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		inithadron();
+//		inithadron();
 		loop = new Looper(this);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 656, 641);
@@ -162,19 +162,20 @@ public class InterfazPMC {
 	public void showData() throws Exception
 	{
 //		panel.removeAll();
-		Quark q = new Quark();
-		q.random(hadron.getLastQuark());
-		hadron.insertQuark(q);
-		
-		
-		ArrayList<Quark> m = Master.getAll();
-		System.out.println(m.size());
-		for (int i =0; i< m.size();i++)
-		{
-			Quark p = m.get(i);
-			
-		System.out.println((m.get(i).toString()));
-		}
+//		Quark q = new Quark();
+//		q.random(hadron.getLastQuark());
+//		hadron.insertQuark(q);
+//		
+//		
+//		ArrayList<Quark> m = Master.getAll();
+//		System.out.println(m.size());
+//		for (int i =0; i< m.size();i++)
+//		{
+//			Quark p = m.get(i);
+//			
+//		System.out.println((m.get(i).toString()));
+//		}
+		hadron = new Hadron(master.getAll());
 		ImageIcon chart = hadron.toChart();
 		lblgraficaTR.setIcon(chart);
 		
@@ -191,21 +192,21 @@ public class InterfazPMC {
 	}
 	
 
-	public void inithadron()
-	{
-		Quark xquark = new Quark(new Date(),20,30,40);
-		this.hadron = new Hadron();
-		for (int i = 0; i < 25; i ++)
-		{
-			Quark quark = new Quark();
-			quark.random(xquark);
-			xquark = quark;
-			try {
-				hadron.addQuark(quark);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
+//	public void inithadron()
+//	{
+//		Quark xquark = new Quark(new Date(),20,30,40);
+//		this.hadron = new Hadron();
+//		for (int i = 0; i < 25; i ++)
+//		{
+//			Quark quark = new Quark();
+//			quark.random(xquark);
+//			xquark = quark;
+//			try {
+//				hadron.addQuark(quark);
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 }

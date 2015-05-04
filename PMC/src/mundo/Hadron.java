@@ -27,21 +27,28 @@ import com.googlecode.charts4j.*;
 public class Hadron 
 {
 	private ArrayList<Quark> quarks;
-	
 	public Hadron()
 	{
 		quarks = new ArrayList<Quark>();
 	}
-	
-	public void addQuark(Quark quark) throws Exception
+
+//	public void addQuark(Quark quark) throws Exception
+//	{
+//		ArrayList<Quark> nueva = Master.getAll();
+//		for(int i =0; i<nueva.size();i++)
+//		{
+//			Quark q = nueva.get(i);
+//			quarks.add(q);
+//		}
+//		
+//	}
+	public void agregarQuark(Quark q)
 	{
-		ArrayList<Quark> nueva = Master.getAll();
-		for(int i =0; i<nueva.size();i++)
-		{
-			Quark q = nueva.get(i);
-			quarks.add(q);
-		}
-		
+		quarks.add(q);
+	}
+	public Hadron(ArrayList<Quark> quarks)
+	{
+		this.quarks = quarks;
 	}
 
 	public Quark createAverageQuark()

@@ -69,7 +69,7 @@ public class Interfaz
 	private void initialize() throws Exception 
 	{
 		ref = new Thread(new Refresher(this));
-		inithadron();
+//		inithadron();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1158, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -144,16 +144,16 @@ System.out.println("show data");
 	}
 	
 
-	public void inithadron() throws Exception
-	{
-		Quark xquark = new Quark();
-		this.hadron = new Hadron();
-		for (int i = 0; i < 25; i ++)
-		{
-			Quark quark = new Quark();
-			quark.random(xquark);
-			xquark = quark;
-			hadron.addQuark(quark);
-		}
-	}
+//	public void inithadron() throws Exception
+//	{
+//		Quark xquark = new Quark();
+//		this.hadron = new Hadron();
+//		for (int i = 0; i < 25; i ++)
+//		{
+//			Quark quark = new Quark();
+//			quark.random(xquark);
+//			xquark = quark;
+//			hadron.addQuark(quark);
+//		}
+//	}
 }
