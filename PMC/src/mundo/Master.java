@@ -96,7 +96,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		{
 			int temp = rs2.getInt("valor");
 			Quark quark2 = datos.get(j);
-			System.out.println(temp);
+		
 			quark2.setMovimiento(temp);
 			j++;
 		}
