@@ -67,9 +67,10 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		String q ="SELECT * FROM TEMPERATURA";
 		prep = conexion.prepareStatement(q);
 		ResultSet rs = prep.executeQuery();
-		Quark quark = new  Quark(null, 0, 0, 0);
+		
 		while(rs.next())
 		{
+			Quark quark = new  Quark(null, 0, 0, 0);
 			int temp = rs.getInt("valor");
 			Timestamp t = rs.getTimestamp("tiempoRegistro");
 			quark.setFecha(t);
@@ -115,9 +116,10 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		String q ="SELECT * FROM TEMPERATURA WHERE tiempoRegistro BETWEEN '"+fechaInicial +"' AND '"+fechaFinal+"'";
 		prep = conexion.prepareStatement(q);
 		ResultSet rs = prep.executeQuery();
-		Quark quark = new  Quark(null, 0, 0, 0);
+		
 		while(rs.next())
 		{
+			Quark quark = new  Quark(null, 0, 0, 0);
 			int temp = rs.getInt("valor");
 			Timestamp t = rs.getTimestamp("tiempoRegistro");
 						
