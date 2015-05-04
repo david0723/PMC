@@ -21,11 +21,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	
 	private static Connection conexion;
 
-	private static void main(String[] args) 
-	{
-		// TODO Auto-generated method stub
 
-	}
 	
 	public static void establecerConexion(String url , String user , String pass)
 	{
@@ -100,6 +96,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		{
 			long temp = rs2.getLong("valor");
 			Quark quark2 = datos.get(i);
+			System.out.println(temp);
 			quark2.setMovimiento(temp);
 			j++;
 		}
@@ -116,64 +113,3 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	}
 }
 
-
-////Si detecta mucho ruido, se prende el led rojo
-//if( sensor > 345 || sensor < 338 )
-//{
-//  digitalWrite(ledRojo, HIGH);
-//  digitalWrite(ledVerde, LOW);
-//}
-//
-////Si no detecta ruido, se prende el led verde
-//else
-//{
-//  digitalWrite(ledRojo, LOW);
-//  digitalWrite(ledVerde, HIGH);
-//}
-
-
-
-
-
-
-
-
-
-//if( move > 50 )
-//{
-//  contadorPersonas ++;
-//  digitalWrite(yellow, HIGH);
-//  
-//}
-//else
-//{
-//  digitalWrite(yellow, LOW);
-//}
-//if (mod == 1)
-//{
-//  digitalWrite(red, LOW);
-//  digitalWrite(green, HIGH);
-//}
-//contadorSegs ++;
-//
-//Serial.println("Paso:");
-//Serial.println(contadorPersonas/2, DEC);
-//Serial.println("Segs:");
-//Serial.println(contadorSegs/10, DEC);
-//
-//if( contadorSegs/(10) == 8 )
-//{
-//  mod = 2; 
-//  contadorSegs = 0;
-//  if( contadorPersonas/2 >= 5 )
-//  {
-//    digitalWrite(red, HIGH);
-//    digitalWrite(green, LOW);
-//  }
-//  else
-//  {
-//    digitalWrite(red, LOW);
-//    digitalWrite(green, HIGH);
-//  }
-//  contadorPersonas = 0;
-//}
