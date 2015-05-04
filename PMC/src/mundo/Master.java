@@ -73,7 +73,8 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 			int temp = rs.getInt("valor");
 			Timestamp t = rs.getTimestamp("tiempoRegistro");
 			int tiempo = t.getNanos();
-			quark.setFecha(new Timestamp(tiempo));
+			
+			quark.setFecha(t);
 			quark.setTemperatura(temp);
 			datos.add(quark);
 		}
