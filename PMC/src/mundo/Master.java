@@ -13,7 +13,7 @@ public class Master {
 	
 private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	
-	private static final String DB_URL = "jdbc:mysql://192.168.0.4/crowdcontrol";
+	private static final String DB_URL = "jdbc:mysql://169.254.96.47/crowdcontrol";
 	
 	private static final String USER = "pmc";
 	
@@ -39,7 +39,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		try 
 		{
 			conexion = DriverManager.getConnection(url, user, pass);
-			
+			System.out.println("Conectó");
 		}
 			catch(Exception e)
 		
