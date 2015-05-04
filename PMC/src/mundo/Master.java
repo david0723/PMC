@@ -70,7 +70,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		Quark quark = new  Quark(null, 0, 0, 0);
 		while(rs.next())
 		{
-			long temp = rs.getLong("valor");
+			int temp = rs.getInt("valor");
 			Timestamp t = rs.getTimestamp("tiempoRegistro");
 			int tiempo = t.getDate();
 			quark.setFecha(new Date(tiempo));
@@ -83,7 +83,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		int i=0;
 		while(rs.next()&&i<datos.size())
 		{
-			long temp = rs1.getLong("valor");
+			int temp = rs1.getInt("valor");
 			Quark quark1 = datos.get(i);
 			quark1.setSonido(temp);
 			i++;
@@ -94,7 +94,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		int j=0;
 		while(rs.next()&&j<datos.size())
 		{
-			long temp = rs2.getLong("valor");
+			int temp = rs2.getInt("valor");
 			Quark quark2 = datos.get(i);
 			System.out.println(temp);
 			quark2.setMovimiento(temp);

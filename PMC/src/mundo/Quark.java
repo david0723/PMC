@@ -18,13 +18,13 @@ public class Quark
 	
 	private Date fecha;
 	
-	private long temperatura;
+	private int temperatura;
 	
-	private long movimiento;
+	private int movimiento;
 	
-	private long sonido;
+	private int sonido;
 	
-	public Quark(Date xFecha, long xTemperatura, long xMovimiento, long xSonido)
+	public Quark(Date xFecha, int xTemperatura, int xMovimiento, int xSonido)
 	{
 		fecha = xFecha;
 		temperatura = xTemperatura;
@@ -34,16 +34,16 @@ public class Quark
 	public Quark()
 	{
 		fecha = new Date();
-		temperatura = (long) (Math.random()*100);
-		movimiento = (long) (Math.random()*100);
-		sonido = (long) (Math.random()*100);
+		temperatura = (int) (Math.random()*100);
+		movimiento =  (int) (Math.random()*100);
+		sonido =  (int) (Math.random()*100);
 	}
 	public void random(Quark xquark)
 	{
 
-		temperatura = xquark.getTemperatura() + (long) (Math.random()*5) - (long) (Math.random()*5);
-		movimiento = xquark.getMovimiento() + (long) (Math.random()*5) - (long) (Math.random()*5);
-		sonido = xquark.getSonido() + (long) (Math.random()*5) - (long) (Math.random()*5);
+		temperatura = (int) (xquark.getTemperatura() +(Math.random()*5) - (Math.random()*5));
+		movimiento = (int) (xquark.getMovimiento() + (Math.random()*5) - (Math.random()*5));
+		sonido = (int) (xquark.getSonido() + (Math.random()*5) -  (Math.random()*5));
 	}
 	public boolean temperaturaAlta()
 	{
@@ -105,7 +105,7 @@ public class Quark
 		return temperatura;
 	}
 
-	public void setTemperatura(long temperatura) 
+	public void setTemperatura(int temperatura) 
 	{
 		this.temperatura = temperatura;
 	}
@@ -114,7 +114,7 @@ public class Quark
 		return movimiento;
 	}
 
-	public void setMovimiento(long movimiento) 
+	public void setMovimiento(int movimiento) 
 	{
 		this.movimiento = movimiento;
 	}
@@ -124,10 +124,14 @@ public class Quark
 		return sonido;
 	}
 
-	public void setSonido(long sonido) 
+	public void setSonido(int sonido) 
 	{
 		this.sonido = sonido;
 	}
-	
+	public String toString()
+	{
+		return temperatura+"         "+sonido+"            "+movimiento;
+		
+	}
 
 }

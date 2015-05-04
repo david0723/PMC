@@ -46,9 +46,9 @@ public class Hadron
 
 	public Quark createAverageQuark()
 	{
-		long temp = 0;
-		long soni = 0;
-		long movi = 0;
+		int temp = 0;
+		int soni = 0;
+		int movi = 0;
 		
 		for (int i = 0; i<quarks.size(); i++)
         {
