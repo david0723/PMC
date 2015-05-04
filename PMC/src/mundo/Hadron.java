@@ -161,7 +161,7 @@ public class Hadron
 		Quark last = getLastQuark();
 		double  level = (last.getMovimiento() + last.getSonido() + last.getTemperatura() )/3;
 		
-		GoogleOMeter chart = GCharts.newGoogleOMeter(level, ":)", "Crowd Level", Color.newColor("D41111"), Color.newColor("b9d432"));
+		GoogleOMeter chart = GCharts.newGoogleOMeter(level, "", "Crowd Level", Color.newColor("D41111"), Color.newColor("b9d432"));
         chart.setTitle("Crowd Meter", Color.newColor("b9d432"), 14);
         chart.setSize(600, 250);
         final LinearGradientFill fill = Fills.newLinearGradientFill(0, Color.newColor("6c6c6c"), 100);
@@ -219,27 +219,27 @@ public class Hadron
         LineChart chart = GCharts.newLineChart(line1, line2, line3);
         chart.setSize(600, 450);
         chart.setTitle("Crowd Control", Color.WHITE, 14);
-        chart.addHorizontalRangeMarker(40, 60, Color.newColor(Color.RED, 30));
-        chart.addVerticalRangeMarker(70, 90, Color.newColor(Color.GREEN, 30));
+//        chart.addHorizontalRangeMarker(40, 60, Color.newColor(Color.RED, 30));
+//        chart.addVerticalRangeMarker(70, 90, Color.newColor(Color.GREEN, 30));
         chart.setGrid(25, 25, 3, 2);
 
         // Defining axis info and styles
         AxisStyle axisStyle = AxisStyle.newAxisStyle(Color.WHITE, 12, AxisTextAlignment.CENTER);
-        AxisLabels xAxis = AxisLabelsFactory.newAxisLabels("Nov", "Dec", "Jan", "Feb", "Mar");
+        AxisLabels xAxis = AxisLabelsFactory.newAxisLabels("10 am", "11 am", "12 am", "1 pm", "2 pm");
         xAxis.setAxisStyle(axisStyle);
-        AxisLabels xAxis2 = AxisLabelsFactory.newAxisLabels("2007", "2007", "2008", "2008", "2008");
-        xAxis2.setAxisStyle(axisStyle);
+//        AxisLabels xAxis2 = AxisLabelsFactory.newAxisLabels("2007", "2007", "2008", "2008", "2008");
+//        xAxis2.setAxisStyle(axisStyle);
         AxisLabels yAxis = AxisLabelsFactory.newAxisLabels("", "25", "50", "75", "100");
-        AxisLabels xAxis3 = AxisLabelsFactory.newAxisLabels("Month", 50.0);
+        AxisLabels xAxis3 = AxisLabelsFactory.newAxisLabels("Hora", 50.0);
         xAxis3.setAxisStyle(AxisStyle.newAxisStyle(Color.WHITE, 14, AxisTextAlignment.CENTER));
         yAxis.setAxisStyle(axisStyle);
-        AxisLabels yAxis2 = AxisLabelsFactory.newAxisLabels("Hits", 50.0);
+        AxisLabels yAxis2 = AxisLabelsFactory.newAxisLabels("%", 50.0);
         yAxis2.setAxisStyle(AxisStyle.newAxisStyle(Color.WHITE, 14, AxisTextAlignment.CENTER));
         yAxis2.setAxisStyle(axisStyle);
 
         // Adding axis info to chart.
         chart.addXAxisLabels(xAxis);
-        chart.addXAxisLabels(xAxis2);
+//        chart.addXAxisLabels(xAxis2);
         chart.addXAxisLabels(xAxis3);
         chart.addYAxisLabels(yAxis);
         chart.addYAxisLabels(yAxis2);
