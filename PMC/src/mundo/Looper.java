@@ -20,7 +20,7 @@ public class Looper implements Runnable
 				
 				try {
 					interfaz.showData();
-					Thread.sleep(500);
+					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

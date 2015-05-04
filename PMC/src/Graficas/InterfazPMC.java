@@ -69,6 +69,7 @@ public class InterfazPMC {
 	 */
 	private void initialize() {
 //		inithadron();
+		master = new Master();
 		loop = new Looper(this);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 656, 641);
@@ -161,6 +162,7 @@ public class InterfazPMC {
 	
 	public void showData() throws Exception
 	{
+
 //		panel.removeAll();
 //		Quark q = new Quark();
 //		q.random(hadron.getLastQuark());
