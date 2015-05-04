@@ -134,6 +134,9 @@ public class InterfazPMC {
 				catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 				lblgraficaHistorial.setIcon(h.toChart());
 				panelHistorial.updateUI();
@@ -165,6 +168,7 @@ public class InterfazPMC {
 		
 		
 		ArrayList<Quark> m = Master.getAll();
+		System.out.println(m.size());
 		for (int i =0; i< m.size();i++)
 		{
 			Quark p = m.get(i);

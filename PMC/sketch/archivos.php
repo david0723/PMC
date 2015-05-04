@@ -1,22 +1,27 @@
 <?php
 //poner en htdocs de XAMPP, nombrado archivo.php
-$mysql_servidor = "192.168.0.4";
+$mysql_servidor = "169.254.96.47";
 $mysql_base = "crowdcontrol";
 $mysql_usuario = "pmc";
 $mysql_clave = "crowdcontrol";
  
 date_default_timezone_set("America/Bogota");
 $hora = time();
-$fechaRegistro="".date("d-m-Y H:i:s", $hora);
-$valor = htmlspecialchars($_GET["sensor"],ENT_QUOTES);
+$fechaRegistro="".date("Y-m-d H:i:s", $hora);
+$valor = htmlspecialchars($_GET["s"],ENT_QUOTES);
 echo "".$fechaRegistro."---".$valor;
 // Valida que esten presente todos los parametros
 if (($fechaRegistro!="") and ($valor!="")) {
         mysql_connect($mysql_servidor,$mysql_usuario,$mysql_clave) or die("Imposible conectarse al servidor.");
+		echo "Conecta";
         mysql_select_db($mysql_base) or die("Imposible abrir Base de datos");
-        $sql = "insert into sonido (tiempoRegistro, valor) values ('$fechaRegistro','$valor')";
+		echo "Entra";
+$sql = "insert into `sonido` (tiempoRegistro, valor) values ('$fechaRegistro','$valor')";
+echo "Inserta";
+echo $sql;
         mysql_query($sql);
 }else {
         echo "paso por aqui";
 }
 ?>
+

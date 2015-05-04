@@ -72,9 +72,7 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		{
 			int temp = rs.getInt("valor");
 			Timestamp t = rs.getTimestamp("tiempoRegistro");
-			int tiempo = t.getNanos();
-			
-			quark.setFecha(t);
+						quark.setFecha(t);
 			quark.setTemperatura(temp);
 			datos.add(quark);
 		}
@@ -105,12 +103,56 @@ private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		return datos;
 	}
 	
-	public Hadron darHistorial(Date fechaInicial, Date fechaFinal)
+	public Hadron darHistorial(Date fechaInicial, Date fechaFinal)  throws Exception
 	{
 		//Se debe conectar a la base de datos, 
 		//pedir los datos que esten entre las fechas indicadas
 		//y retornar un Hadron con la informacion solicitada
-		return null;
+		Hadron v= new Hadron();
+		ArrayList<Quark> datos = new ArrayList<Quark>();
+		establecerConexion(DB_URL, USER, PASS);
+		PreparedStatement prep = null;
+		String q ="SELECT * FROM TEMPERATURA BETWEEN"+fechaInicial +"AND"+fechaFinal;
+		prep = conexion.prepareStatement(q);
+		ResultSet rs = prep.executeQuery();
+		Quark quark = new  Quark(null, 0, 0, 0);
+		while(rs.next())
+		{
+			int temp = rs.getInt("valor");
+			Timestamp t = rs.getTimestamp("tiempoRegistro");
+						
+			quark.setFecha(t);
+			quark.setTemperatura(temp);
+			datos.add(quark);
+		}
+		String q1 ="SELECT * FROM SONIDO BETWEEN"+fechaInicial +"AND"+fechaFinal;
+		prep = conexion.prepareStatement(q1);
+		ResultSet rs1 = prep.executeQuery();
+		int i=0;
+		while(rs1.next()&&i<datos.size())
+		{
+			int temp = rs1.getInt("valor");
+			Quark quark1 = datos.get(i);
+			quark1.setSonido(temp);
+			i++;
+		}
+		String q2 ="SELECT * FROM MOVIMIENTO BETWEEN"+fechaInicial +"AND"+fechaFinal;
+		prep = conexion.prepareStatement(q2);
+		ResultSet rs2 = prep.executeQuery();
+		int j=0;
+		while(rs2.next()&&j<datos.size())
+		{
+			int temp = rs2.getInt("valor");
+			Quark quark2 = datos.get(j);
+		
+			quark2.setMovimiento(temp);
+			j++;
+		}
+		cerrarConexion(conexion);
+		
+		return v;
+	
+		
 	}
 }
 
