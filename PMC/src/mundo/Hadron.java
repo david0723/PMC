@@ -161,7 +161,7 @@ public class Hadron
 		Quark last = getLastQuark();
 		double  level = (last.getMovimiento() + last.getSonido() + last.getTemperatura() )/3;
 		
-		GoogleOMeter chart = GCharts.newGoogleOMeter(level, "", "Crowd Level", Color.newColor("D41111"), Color.newColor("b9d432"));
+		GoogleOMeter chart = GCharts.newGoogleOMeter(level, "", "Crowd Level", Color.newColor("b9d432"), Color.newColor("D41111"));
         chart.setTitle("Crowd Meter", Color.newColor("b9d432"), 14);
         chart.setSize(600, 250);
         final LinearGradientFill fill = Fills.newLinearGradientFill(0, Color.newColor("6c6c6c"), 100);
@@ -219,27 +219,27 @@ public class Hadron
         LineChart chart = GCharts.newLineChart(line1, line2, line3);
         chart.setSize(600, 450);
         chart.setTitle("Crowd Control", Color.WHITE, 14);
-//        chart.addHorizontalRangeMarker(40, 60, Color.newColor(Color.RED, 30));
-//        chart.addVerticalRangeMarker(70, 90, Color.newColor(Color.GREEN, 30));
+        chart.addHorizontalRangeMarker(40, 60, Color.newColor(Color.RED, 30));
+        chart.addVerticalRangeMarker(70, 90, Color.newColor(Color.GREEN, 30));
         chart.setGrid(25, 25, 3, 2);
 
         // Defining axis info and styles
         AxisStyle axisStyle = AxisStyle.newAxisStyle(Color.WHITE, 12, AxisTextAlignment.CENTER);
-        AxisLabels xAxis = AxisLabelsFactory.newAxisLabels("10 am", "11 am", "12 am", "1 pm", "2 pm");
+        AxisLabels xAxis = AxisLabelsFactory.newAxisLabels("Nov", "Dec", "Jan", "Feb", "Mar");
         xAxis.setAxisStyle(axisStyle);
-//        AxisLabels xAxis2 = AxisLabelsFactory.newAxisLabels("2007", "2007", "2008", "2008", "2008");
-//        xAxis2.setAxisStyle(axisStyle);
+        AxisLabels xAxis2 = AxisLabelsFactory.newAxisLabels("2007", "2007", "2008", "2008", "2008");
+        xAxis2.setAxisStyle(axisStyle);
         AxisLabels yAxis = AxisLabelsFactory.newAxisLabels("", "25", "50", "75", "100");
-        AxisLabels xAxis3 = AxisLabelsFactory.newAxisLabels("Hora", 50.0);
+        AxisLabels xAxis3 = AxisLabelsFactory.newAxisLabels("Month", 50.0);
         xAxis3.setAxisStyle(AxisStyle.newAxisStyle(Color.WHITE, 14, AxisTextAlignment.CENTER));
         yAxis.setAxisStyle(axisStyle);
-        AxisLabels yAxis2 = AxisLabelsFactory.newAxisLabels("%", 50.0);
+        AxisLabels yAxis2 = AxisLabelsFactory.newAxisLabels("Hits", 50.0);
         yAxis2.setAxisStyle(AxisStyle.newAxisStyle(Color.WHITE, 14, AxisTextAlignment.CENTER));
         yAxis2.setAxisStyle(axisStyle);
 
         // Adding axis info to chart.
         chart.addXAxisLabels(xAxis);
-//        chart.addXAxisLabels(xAxis2);
+        chart.addXAxisLabels(xAxis2);
         chart.addXAxisLabels(xAxis3);
         chart.addYAxisLabels(yAxis);
         chart.addYAxisLabels(yAxis2);
@@ -267,7 +267,6 @@ public class Hadron
 //        String expectedString = "http://chart.apis.google.com/chart?chco=CA3D05,87CEEB&chd=e:AAB4DhEzFxGnHrJRLhOZRmUpXCYZYpYAXCWfXCZIczhmmtrKuE,..-H8e7M6O5Y4U2u0exmuZrWo9nmnWn.o9pgo9m3jMeZZSU1R7&chdl=My+Website.com|Competition.com&chf=bg,s,1F1D1D|c,lg,0,363433,1.0,2E2B2A,0.0&chg=25.0,25.0,3,2&chls=3,1,0|3,1,0&chm=r,FF00004C,0,0.40,0.60|R,0080004C,0,0.70,0.90|d,CA3D05,0,-1,12,0|d,FFFFFF,0,-1,8,0|d,87CEEB,1,-1,12,0|d,FFFFFF,1,-1,8,0&chs=600x450&cht=lc&chts=FFFFFF,14&chtt=Web+Traffic%7C%28in+billions+of+hits%29&chxl=0:||25|50|75|100|1:|Hits|2:|Nov|Dec|Jan|Feb|Mar|3:|2007|2007|2008|2008|2008|4:|Month&chxp=1,50.0|4,50.0&chxr=1,0.0,100.0|4,0.0,100.0&chxs=0,FFFFFF,12,0|1,FFFFFF,12,0|2,FFFFFF,12,0|3,FFFFFF,12,0|4,FFFFFF,14,0&chxt=y,y,x,x,x";
 //        assertEquals("Junit error", normalize(expectedString), normalize(url));
 	}
-
 	public Quark getLastQuark() 
 	{
 		return quarks.get(quarks.size()-1);

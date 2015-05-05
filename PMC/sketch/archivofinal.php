@@ -18,14 +18,12 @@ if (($fechaRegistro!="") and ($valor!="")) {
 		echo "Conecta";
         mysql_select_db($mysql_base) or die("Imposible abrir Base de datos");
 		echo "Entra";
-$sql = "insert into `temperatura` (tiempoRegistro, valor) values ('$fechaRegistro','$valor')";
-$sql1 = "insert into `sonido` (tiempoRegistro, valor) values ('$fechaRegistro','$valors')";
-$sql2 = "insert into `movimiento` (tiempoRegistro, valor) values ('$fechaRegistro','$valorm')";
+$sql = ("insert into `temperatura` (tiempoRegistro, valor) values ('$fechaRegistro','$valor');insert into `sonido` (tiempoRegistro, valor) values ('$fechaRegistro','$valors');insert into `movimiento` (tiempoRegistro, valor) values ('$fechaRegistro','$valorm')");
+
 echo "Inserta";
 echo $sql;
         mysql_query($sql);
-		mysql_query($sql1);
-		mysql_query($sql2);
+		
 }else {
         echo "paso por aqui";
 }
